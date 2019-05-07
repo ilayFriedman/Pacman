@@ -1,0 +1,1624 @@
+<html>
+    <head>
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
+            @import url(https://fonts.googleapis.com/css?family=Squada+One);
+            @import url(https://fonts.googleapis.com/css?family=Arvo:700);
+            @import url(https://fonts.googleapis.com/css?family=Seaweed+Script);
+            body {
+            padding: 10px 10px;
+            background: #eee url(https://subtlepatterns.com/patterns/extra_clean_paper.png);
+            }
+            /*** TITLE PACMAN  ***/
+            #logo {
+            font-family: 'Open Sans', sans-serif;
+            color: #555;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 5vw;
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1;
+            text-shadow: #EDEDED 3px 2px 0;
+            position: relative;
+            }
+            #logo:after {
+            content:"PacMan";
+            position: absolute;
+            left: 8px;
+            top: 10px;
+            }
+            #logo:after {
+            background: url(https://subtlepatterns.com/patterns/crossed_stripes.png) repeat;
+            background-image: -webkit-linear-gradient(left top, transparent 0%, transparent 25%, #555 25%, #555 50%, transparent 50%, transparent 75%, #555 75%);
+            background-size: 4px 4px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: -5;
+            display: block;
+            text-shadow: none;
+            }
+            /** AREAS IN SELECTION (MENU , CONTENT) **/
+            section{
+
+                width: 100%;
+                height: 80%;
+            }
+            content{
+                float: right;
+                height: 100%;
+                width: 85%;
+                text-align: center;
+            }
+            buttonMenu{
+                
+                float: left;
+                height: 100%;
+                width: 15%;
+                text-align: center;
+            }
+            /** MENU BUTTONS **/
+            .buttons {
+            width: 170px;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            }
+            .menuButtons {
+            background-color: white;
+            color: black;
+            border: 3px solid #555555;
+            }
+            .menuButtons:hover {
+            background-color: #555555;
+            color: white;
+            }
+            /** WELCOME CONTENT **/
+            #welcome{
+                height: 100%;
+                border: 3px ridge rgba(28,110,164,0.43);
+                border-radius: 0px 40px 0px 40px;
+                background: #9cb8b3;
+                text-align: center;
+            }
+            
+
+
+            #h1welcome {
+                font: 600 1.5em/1 'Raleway', sans-serif;
+                color: rgba(0,0,0,.5);
+                text-transform: uppercase;
+                letter-spacing: .5em;
+                top: 25%;
+
+            }
+
+            
+            #spanWelcome, #spanWelcome:after {
+                font-weight: 900;
+                color: #efedce;
+                white-space: nowrap;
+                display: inline-block;
+                letter-spacing: .1em;
+                padding: .2em 0 .25em 0;
+            }
+
+            #spanWelcome {
+                font-size: 4em;
+                z-index: 100;
+                text-shadow: .04em .04em 0 #9cb8b3;
+            }
+
+            #spanWelcome:after {
+
+                left: .0875em;
+                top: .0875em;
+                z-index: -1;
+                -webkit-mask-image: url(//f.cl.ly/items/1t1C0W3y040g1J172r3h/mask.png);
+            }
+
+
+            /**LOGIN content **/
+
+            /* Bordered form */
+            #loginTable,#registerTable,#gameSettingsTable,#gamePlay {
+                border: 3px ridge rgba(28,110,164,0.43);
+                border-radius: 0px 40px 0px 40px;
+                background: #9cb8b3;
+                text-align: center;
+                font-size:1em;
+                padding:0 2em;
+                cursor:pointer;
+                transition:800ms ease all;
+                outline:none;
+                font: 600 1.2em/1 'Raleway', sans-serif;
+                color : rgb(80, 85, 88);
+                margin-left:auto; 
+                margin-right:auto;
+            }
+
+            /* Full-width inputs */
+            input[type=text], input[type=password], input[type=date]{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 2px solid #4e5f5c;
+            box-sizing: border-box;
+            }
+
+
+
+
+            /** PLAY BUTTON **/
+
+                        /* Reset */
+            #playGameButton, .welcomeButton {
+            background: transparent;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+            outline: 0;
+            -webkit-appearance: none;
+            }
+
+            /* Custom */
+            #playGameButton, .welcomeButton {
+            display: inline-block;
+            position: relative;
+            padding: 20px 38px;
+            top: 0;
+            font-size: 30px;
+            font-family: "Open Sans", Helvetica;
+            border-radius: 4px;
+            border-bottom: 1px solid #6a7c79;
+            background: #85a59f;
+            color: #fff;
+            box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
+            
+            -webkit-transform: translateZ(0);
+                -moz-transform: translateZ(0);
+                -ms-transform: translateZ(0);
+                    transform: translateZ(0);
+            
+            -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -ms-transition: all 0.2s ease;
+                    transition: all 0.2s ease;
+            }
+
+            #playGameButton:hover, .welcomeButton:hover {
+            top: -10px;
+            box-shadow: 0px 10px 10px #262928;
+            
+            -webkit-transform: rotateX(20deg);
+                -moz-transform: rotateX(20deg);
+                -ms-transform: rotateX(20deg);
+                    transform: rotateX(20deg);
+            }
+
+            #playGameButton:active, .welcomeButton:active {
+            top: 0px;
+            box-shadow: 0px 0px 0px #464d4b;
+            background: #6a7c79;
+            }
+
+
+            /**footer**/
+            footer{
+                background: grey;
+                width: 100%;
+                height: 3%;
+                text-align: center;
+            }
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  text-align: left;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+        </style>
+    </head>
+    <body onload="checkConnected();updateLives();">
+    <header>
+        <table>
+            <tr>
+                <td><img src="pacIcon.png" width="100vw"/></td>
+                <td id="logo">PacMan</td>
+                <td style="vertical-align:top; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"><b>Ilay Friedman 305709248 <br> Oren Shor 204076053</b></td>
+            </tr>
+        </table>
+    </header>
+    <section>     
+    <content>
+        <div id="welcome" ><br><br>
+            <h1 id="h1welcome">before you'll start, we want to say<br>
+            <span data-shadow-text="Text-Shadow" id="spanWelcome">welcome</span><br>
+            Please Login or Register to continue</h1>
+            <br><br><br><br>
+                 <button class="welcomeButton" id="Wregister">Register</button>
+                 <button class="welcomeButton" id="Wlogin">Login</button>
+        </div>
+
+        <div id="Login">
+                <h1 id="h1welcome">Login:</h1>
+            <table id="loginTable">
+                <tr>
+                    <td><b>Username</b></td>
+                    <td><input type="text" placeholder="Enter Username" id="uname" required width=30></td>
+                </tr>
+                <tr>
+                        <td><b>Password</b></td>
+                        <td><input type="password" placeholder="Enter Password" id="psw" required></td>
+                </tr>
+                
+                <tr>
+                    <td colspan=2><button type="submit" onclick="login(document.getElementById('uname').value,document.getElementById('psw').value)">GO AND PLAY!</button><br><br></td>
+                </tr>
+            </table>
+            <br>
+            
+            
+            <br><br>
+            <a href="" onclick="document.getElementById('uname').value = ''; document.getElementById('psw').value = '';" id="backToWelcome">Back</a>
+        </div>
+
+        <div id="register">
+                <h1 id="h1welcome">Register:</h1>
+            <table id="registerTable">
+                <tr>
+                    <td colspan="2" style="font-weight:normal; text-align: left;"><b>rules for registertion:</b><br>-Password must contain more than 8 characters (letters and numbers)<Br>-Last name and first name do not contain numbers<br><br></td>
+                </tr>
+                <tr>
+                    <td><b>Username:</b></td>
+                    <td><input type="text" placeholder="Choose Username for login" id="Runame" required width=30></td>
+                </tr>
+                <tr>
+                        <td><b>Password:</b></td>
+                        <td><input type="text" placeholder="password must include numbers and letters" id="Rpsw" required></td>
+                </tr>
+                <tr>
+                        <td><b>first name:</b></td>
+                        <td><input type="text" placeholder="Enter first Name" id="RfirstName" required width=30></td>
+                    </tr>
+                    <tr>
+                            <td><b>Last name:</b></td>
+                            <td><input type="password" placeholder="Enter Last Name" id="RlastName" required></td>
+                    </tr>
+                    <tr>
+                            <td><b>Email:</b></td>
+                            <td><input type="text" placeholder="Enter valid E-mail adress" id="Remail" required width=10></td>
+                        </tr>
+                        <tr>
+                                <td><b>Birth date:</b></td>
+                                <td style="text-align: left;"><input type="date" id="Rdate" required></td>
+                        </tr>
+                <tr>
+                    <td colspan=2><button type="submit" id="submitForm">Register with this details</button></td>
+                </tr>
+                <tr>
+                        <td colspan=2>
+                            <p id="emptyFields" style="font-size: 65%"></p>
+                            <p id="worngEmail" style="font-size: 65%"></p>
+                            <p id="shortPassword" style="font-size: 65%"></p>
+                            <p id="firstNameWithNum" style="font-size: 65%"></p>
+                            <p id="lastNameWithNum" style="font-size: 65%"></p>
+                            <p id="passOnlyWithNumsAndLetters" style="font-size: 65%"></p>
+                        </td>
+                </tr>
+            </table>
+            <br>
+            
+            
+            <br><br>
+            <a href="" onclick="document.getElementById('uname').value = ''; document.getElementById('psw').value = '';" id="backToWelcome">Back</a>
+        </div>
+        <div id="gamePlay">
+            <table style="width: 100%; text-align: center;">
+                <tr>
+                    <td id="namePlayer"></td>
+                    <td>Score:</td>
+                    <td><input id="lblScore" type="text" size="10"/></td>
+                    <td>time:</td>
+                    <td><input id="lblTime" type="text" size="10"/></td>
+                    <td><table>
+                        <tr>
+                            <td>lives:</td>
+                                <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Pacman_HD.png/480px-Pacman_HD.png" width="30" id="lives1"></td>
+                                <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Pacman_HD.png/480px-Pacman_HD.png" width="30" id="lives2"></td>
+                                <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Pacman_HD.png/480px-Pacman_HD.png" width="30" id="lives3"></td>
+                                <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Pacman_HD.png/480px-Pacman_HD.png" width="30" id="lives4"></td>
+                        </tr>
+                    </table></td>
+                    <td><button id="stopMusic" onclick="stopMusic()">stop/play Music</button></td>
+                    <td><button id="stopMusic" onclick="newGame()">PLAY AGAIN</button></td>
+                </tr>
+                <tr>
+                    <td colspan="7"><canvas id="canvas" height="600" width="600"></canvas></td>
+                </tr>
+            </table>
+            
+        </div>
+        <div id="gameSettings">
+                <h1 id="h1welcome">GAME SETTINGS:</h1>
+                <table cellpadding="10" id="gameSettingsTable">
+                    <tr>
+                        <td>
+                                <table id="settingTable" cellpadding="10" style="background: #bbccc9; height: 100%;" >
+                                        <tr>
+                                            <td colspan="3" style="font-weight:normal; text-align: left;"><b>General options for the game:</b><br>random buttons will put random input<br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Balls number:</b></td>
+                                            <td>
+                                                <input type="range" id="ballsNumber" name="ballsNumber" min="50" max="90" value="0" oninput="amount.value=ballsNumber.value; clickOnRndBallsNum = false;">
+                                                <output name="amount" id="amount" for="ballsNumber"> 50 </output> balls</td>
+                                                <td><button id="rndBallsNumbers">make random</button></td>
+                                        </tr>
+                                        <tr>
+                                                <td rowspan="3"><b>balls colors:</b></td>
+                                                <td><input type="color" name="5pointBallsColor" id="5pointBallsColor" value="#ff0000"><b> 5 points balls</b></td>
+                                                <td rowspan="3"><button id="rndBallsColors">make random</button></td>
+                                                
+                                        </tr>
+                                        <tr>
+                                                <td><input type="color" name="15pointBallsColor"  id="15pointBallsColor" value="#6699ff" ><b> 15 points balls</b></td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                    <td><input type="color" name="25pointBallsColor"  id="25pointBallsColor" value="#00cc66"><b> 25 points balls</b></td>
+                                            </tr>
+                                        <tr>
+                                                <td><b>game time <Br>(minimum 60 sec):</b></td>
+                                                <td><input type="text" style="width: 30%;" id="gameTime" placeholder="60+" >  Seconds.</td>
+                                                <td><button id="rndTime">make random</button></td>
+                                                
+                                            </tr>
+                                    </table>
+                        </td>
+                        <td>
+                                <table style="text-align: center; background: #bbccc9; height: 100%;">
+                                        <tr>
+                                            
+                                            <td colspan="3" style="font-weight:normal; text-align: left;"><b>Movement options:</b><br><br></td>
+                                            </tr>
+                                            <tr>
+                                            <td></td>
+                                            <td width="150"><p id="outputUpMove"></p><button id="upChooseMove">click here and press your choose for UP key</button>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="150"><p id="outputLeftMove"></p><button id="leftChooseMove">click here and press your choose for LEFT key</button></td>
+                                            <td width="20"><img src="https://cdn0.iconfinder.com/data/icons/arrows-11/100/arrow-9-512.png" width="85%"></td>
+                                            <td width="150"><p id="outputRightMove"></p><button id="rightChooseMove">click here and press your choose for RIGHT key</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td width="150"><p id="outputDownMove"></p><button id="downChooseMove">click here and press your choose for DOWN key</button></td>
+                                            <td></td>
+                                        </tr> 
+                                        <tr>
+                                                <td colspan="3"  style="padding: 10px;">deafult choose: Keyboard arrows</td>
+                                        </tr>
+                                    </table>
+                        </td>
+                        <td rowspan="2">
+                                <table style="text-align: center;  background: #bbccc9; height: 100%;"  cellpadding="10"> 
+                                    <tr>
+                                        <td><b>choose monsters:</b><br>between 1 to 3</td>
+                                    </tr>                                    
+                                    <tr>
+                                        <td width="20" ><img src="./settingMonster_Green.jpeg" width="50%" onclick="mark(this)" id="green" name="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c314.png" class="monsterTd"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20"><img src="./settingMonster_Pink.jpeg" width="50%" onclick="mark(this);" id="pink" name="https://static.giantbomb.com/uploads/scale_medium/8/87790/2469744-pinky.png" class="monsterTd"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20"><img src="./settingMonster_Red.jpeg" width="50%" onclick="mark(this)" id="red" name="https://static.giantbomb.com/uploads/scale_small/8/87790/2469740-blinky.png" class="monsterTd"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20"><img src="./settingMonster_Orange.jpeg" width="50%" onclick="mark(this)"  name="https://static.giantbomb.com/uploads/scale_small/8/87790/2469743-orange.png" id="orange" class="monsterTd"></td>
+                                    </tr>                                                                                                            
+                                    </table>
+                        </td>
+                        <tr>
+                            <td colspan="3"><button id="playGameButton">I'm ready to play!</button></td>
+                        </tr>
+                    </tr>
+                </table>
+                <br><br><br>
+               </div>
+        </div>
+    </content>
+
+    <buttonMenu>
+        <br>
+        <button class="menuButtons buttons" id="Mwelcome">Welcome</button>
+        <br>
+        <button class="menuButtons buttons" id="Mregister">Registration</button>
+        <Br>
+        <button class="menuButtons buttons" id="Mlogin">Login</button>
+        <Br>
+        <button class="menuButtons buttons" id="Msettings">Game Settings</button>
+        <Br>
+            <!-- Trigger/Open The Modal -->
+        <button class="menuButtons buttons" id="Mabout">About</button>
+
+        <!-- The Modal -->
+<div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>WELCOME!</h2><br><br>
+          <p>Ilay Friedman 305709248 
+              <br>
+              Oren Shor 204076053
+              <br><br>
+              we did not use tamplates, and the Jquery we used it in the validation of the
+              <br>
+              registertaion form, and switch div's in the web.
+              <br>
+              also we import : https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+              <br>
+              <br>
+              We had a difficulty about the time to finish that assingment. (beacuse all GAZA-situtaion)
+              <br>
+              still we did our best 
+              <br>
+              we hope you'll enjoy! :)
+          </p>
+        </div>
+      
+      </div>
+      
+      <script>
+      // Get the modal
+      var modal = document.getElementById('myModal');
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("Mabout");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      window.addEventListener("keydown", function(event){
+          if(event.code == "Escape"){
+            modal.style.display = "none";
+          }
+      });
+    
+
+      </script>
+        <br>
+        <p id="private_welcome"></p>
+        <button id="loggOutB" onclick="LogedIn=false; checkConnected();">LoggOut</button>
+    </buttonMenu>
+    </section>   
+    <footer><p>This website present the new vision of PACMAN game , with registration and new features. enjoy!</p></footer>
+
+
+    </body>
+
+
+<script>
+var dbUsers = [{userName:"a", fullName:"a", password:"a"}]
+var LogedIn = false;
+var loggedName;
+
+function login(userName,password){
+    document.getElementById('uname').value = '';
+    document.getElementById('psw').value = '';
+    var i;
+    var found=false;
+    for (i = 0; i < dbUsers.length && found==false; i++) {
+        
+        if(dbUsers[i].userName == userName && dbUsers[i].password == password){
+            found=true;
+            loggedName = dbUsers[i].fullName;
+        }
+    }
+    
+
+    // YOU CAN PLAY THE GAME! - GOOD LOGIN
+    if(found == true){
+        LogedIn = true;
+        document.getElementById('uname').value = '';
+        document.getElementById('psw').value = '';
+        if($(Login).is(":visible")){
+            $("#Login").fadeOut("fast");
+        }
+        else{
+            if($(welcome).is(":visible")){
+            $("#welcome").fadeOut("fast");
+            }
+        }
+        $("#gameSettings").fadeIn("slow");
+
+        $("#welcome").hide();
+        $("#Login").hide();
+        $("#register").hide();
+    }
+    else{
+        window.alert("Oops! User details does not exist in our system. register or try again with other details!");
+    }
+
+}
+
+function register(userName, password, firstName, lastName){
+    
+    dbUsers.push({userName:userName, fullName:firstName +" "+ lastName, password:password});
+      
+}
+
+
+function checkConnected() {
+    if (!LogedIn) {
+        $('#loggOutB').hide();
+        document.getElementById('private_welcome').innerHTML="";
+        setTimeout("checkConnected();", 1000);
+        return;
+    } else {
+        document.getElementById('private_welcome').innerHTML= "Hi "+loggedName+"!\n your'e connected";
+        $('#loggOutB').show();
+    }
+}
+      
+</script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    //RESET TO WELCOME TO SHOW ONLY
+    
+    $("#welcome").show();
+    $("#Login").hide();
+    $("#register").hide();
+    $("#gamePlay").hide();
+    $("#gameSettings").hide();
+    
+
+    //CLICK ON WELCOME
+    $("#Mwelcome,#backToWelcome").click(function(){
+        document.getElementById('uname').value = '';
+        document.getElementById('psw').value = '';
+        if($(Login).is(":visible")){
+            $("#Login").fadeOut("fast");
+        }
+        else{
+            if($(register).is(":visible")){
+            $("#register").fadeOut("fast");
+            }
+            else{
+                if($(gameSettings).is(":visible")){
+                $("#gameSettings").fadeOut("fast");
+                }
+            }
+        }
+        $("#Mwelcome").fadeIn("slow");
+        $("#welcome").show();
+        $("#Login").hide();
+        $("#register").hide();
+        $("#gamePlay").hide();
+    }); 
+
+        //CLICK ON LOGIN
+        $("#Wlogin,#Mlogin,#loggOutB").click(function(){
+        document.getElementById('uname').value = '';
+        document.getElementById('psw').value = '';
+        if($(welcome).is(":visible")){
+            $("#welcome").fadeOut("fast");
+        }
+        else{
+            if($(register).is(":visible")){
+            $("#register").fadeOut("fast");
+            }
+            else{
+                if($(gameSettings).is(":visible")){
+                $("#gameSettings").fadeOut("fast");
+                }
+            }
+        }
+        $("#Login").fadeIn("slow");
+        $("#welcome").hide();
+        $("#Login").show();
+        $("#register").hide();
+        $("#gamePlay").hide();
+         
+        
+    }); 
+
+    //CLICK ON REGISTER
+    $("#Mregister,#Wregister").click(function(){
+        document.getElementById('uname').value = '';
+        document.getElementById('psw').value = '';
+        if($(Login).is(":visible")){
+            $("#Login").fadeOut("fast");
+        }
+        else{
+            if($(welcome).is(":visible")){
+            $("#welcome").fadeOut("fast");
+            }
+            else{
+                if($(gameSettings).is(":visible")){
+                $("#gameSettings").fadeOut("fast");
+                }
+            }
+        }
+        $("#register").fadeIn("slow");
+        $("#welcome").hide();
+        $("#Login").hide();
+        $("#register").show();
+        $("#gamePlay").hide();
+    }); 
+
+    //CLICK ON SETTINGS
+    $("#Msettings").click(function(){
+        if(LogedIn){
+            if($(Login).is(":visible")){
+            $("#Login").fadeOut("fast");
+        }
+        else{
+            if($(welcome).is(":visible")){
+            $("#welcome").fadeOut("fast");
+            }
+            else{
+                if($(gamePlay).is(":visible")){
+                $("#gamePlay").fadeOut("fast");
+                }
+            }
+        }
+        $("#gameSettings").fadeIn("slow");
+        $("#welcome").hide();
+        $("#Login").hide();
+        $("#gameSettings").show();
+        $("#gamePlay").hide();
+        }
+        else{
+                    //not logged in - go to LOGIN
+                $("#Wlogin,#Mlogin").click(function(){
+                document.getElementById('uname').value = '';
+                document.getElementById('psw').value = '';
+                if($(welcome).is(":visible")){
+                    $("#welcome").fadeOut("fast");
+                }
+                else{
+                    if($(register).is(":visible")){
+                    $("#register").fadeOut("fast");
+                    }
+                    else{
+                        if($(gameSettings).is(":visible")){
+                        $("#gameSettings").fadeOut("fast");
+                        }
+                    }
+                }
+                $("#Login").fadeIn("slow");
+                $("#welcome").hide();
+                $("#Login").show();
+                $("#register").hide();
+                $("#gamePlay").hide();
+                
+                
+            }); 
+         }
+    }); 
+
+     //START GAME
+     $("#playGameButton").click(function(){
+        
+         if(canCreateGame){
+                if($(Login).is(":visible")){
+                    $("#Login").fadeOut("fast");
+                }
+                else{
+                    if($(welcome).is(":visible")){
+                    $("#welcome").fadeOut("fast");
+                    }
+                    else{
+                        if($(gameSettings).is(":visible")){
+                        $("#gameSettings").fadeOut("fast");
+                        }
+                    }
+                }
+                Start();
+                
+                $("#gamePlay").fadeIn("slow");
+                $("#welcome").hide();
+                $("#Login").hide();
+                $("#register").hide();
+                $("#gamePlay").show();
+         }
+    }); 
+
+
+
+    $('#submitForm').click(function(){
+        
+
+        var validForm = true;
+        var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        var is_email=re.test($(Remail).val());
+        var letterNumber = /^[0-9a-zA-Z]+$/;
+        var letter = /^[a-zA-Z]+$/;
+        if($(Runame).val() == "" || $(Rpsw).val() == "" || $(RfirstName).val() == "" || $(RlastName).val() == ""
+         || $(Remail).val() == "" || $(Rdate).val() == "" ){validForm = false;  document.getElementById("emptyFields").innerHTML = "Please fill all the details!";}
+         else{ document.getElementById("emptyFields").innerHTML = "";}
+        if(!is_email){validForm = false;  document.getElementById("worngEmail").innerHTML = "Please insert right E-mail adress!";}
+        else{ document.getElementById("worngEmail").innerHTML = "";}
+        if($(Rpsw).val().length < 8){validForm = false;  document.getElementById("shortPassword").innerHTML = "PassWord must be longer than 8 characters!";}
+        else{ document.getElementById("shortPassword").innerHTML = "";}
+        if(!$(Rpsw).val().match(letterNumber)){validForm = false;  document.getElementById("passOnlyWithNumsAndLetters").innerHTML = "password must conatin only numbers and letters!";}
+        else{ document.getElementById("passOnlyWithNumsAndLetters").innerHTML = "";}
+        if(!$(RfirstName).val().match(letter)){validForm = false;  document.getElementById("firstNameWithNum").innerHTML = "first name cannot contain numbers!";}
+        else{ document.getElementById("firstNameWithNum").innerHTML = "";}
+        if(!$(RlastName).val().match(letter)){validForm = false;  document.getElementById("lastNameWithNum").innerHTML = "last name cannot contain numbers!";}
+        else{ document.getElementById("lastNameWithNum").innerHTML = "";}
+        var i;
+        var found=false;
+        for (i = 0; i < dbUsers.length && found==false; i++) {
+            if(dbUsers[i].userName == $(Runame).val()){
+                found=true;
+            }
+        }
+        if(validForm && found==false){
+            register(document.getElementById('Runame').value,document.getElementById('Rpsw').value,document.getElementById('RfirstName').value,document.getElementById('RlastName').value);
+            document.getElementById('Runame').value = '';
+            document.getElementById('Rpsw').value = '';
+            document.getElementById('RfirstName').value = '';
+            document.getElementById('RlastName').value = '';
+            document.getElementById('Remail').value = '';
+            document.getElementById('Rdate').value = '';
+        }
+        
+        else{ if($(Runame).val() != ''){window.alert("Oops! Username already in our system, please choose another name");}}
+
+        //document.getElementById("demo1").innerHTML = JSON.stringify(dbUsers, null, 4);
+        
+    }); 
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+    var context = canvas.getContext("2d");
+    var shape = new Object();
+    var board;
+    var score;
+    var pac_color;
+    var start_time;
+    var time_elapsed;
+    var interval;
+    var sum_food_remain;
+    var ball5Points;
+    var ball15Points;
+    var ball25Points;
+    var leftKey = 'ArrowLeft';
+    var rightKey = 'ArrowRight';
+    var upKey= 'ArrowUp';
+    var downKey = 'ArrowDown';
+    var ballsColors=[];
+    var clickOnRndBallsNum =false;
+    var timeLeft;
+    var canCreateGame = false;
+    var numOfMonsters = 0;
+    var positionBodyA = 0.15;
+    var positionBodyB = 1.85;
+    var positionEyeX = 5;
+    var positionEyeY = -15;
+    var lives = 3;
+    var pickedMonsters=[];
+    var allMonsters = [];
+    var treat;
+    var treatAlive = true;
+    var once=1;
+    var pacmanAlive=true;
+    var audio = new Audio('./backgroundMusic.mp3');
+    var click=1;
+    var endGame=false;
+
+
+
+    
+    //STTEINGS !! 
+
+    /// making moves up,down,left,right
+
+    document.getElementById("upChooseMove").addEventListener("keydown", function(event){
+  let strUp = "You Choose:'" + event.code + "'"; document.getElementById("outputUpMove").innerHTML = strUp; upKey = event.code;
+});
+
+
+document.getElementById("leftChooseMove").addEventListener("keydown", function(event){
+  let strUp = "You Choose:'" + event.code + "'"; document.getElementById("outputLeftMove").innerHTML = strUp; leftKey = event.code;
+});
+
+
+document.getElementById("rightChooseMove").addEventListener("keydown", function(event){
+  let strUp = "You Choose:'" + event.code + "'"; document.getElementById("outputRightMove").innerHTML = strUp; rightKey = event.code;
+});
+
+
+document.getElementById("downChooseMove").addEventListener("keydown", function(event){
+  let strUp = "You Choose:'" + event.code + "'"; document.getElementById("outputDownMove").innerHTML = strUp; downKey = event.code;
+});
+
+
+// balls color
+$("#playGameButton").click(function(){
+    var numbersOnly = /^[0-9]+$/;
+    ballsColors[0] = document.getElementById("5pointBallsColor").value;
+    ballsColors[1] = document.getElementById("15pointBallsColor").value;
+    ballsColors[2] =  document.getElementById("25pointBallsColor").value;
+    if(document.getElementById("gameTime").value ==''){
+        window.alert("Insert Game Time please");
+
+    }
+    else{
+        if(!numbersOnly.test(document.getElementById("gameTime").value)){
+        window.alert("Insert only numbers in Game Time!");
+        }
+        else{
+            if(document.getElementById("gameTime").value < 60){
+                window.alert("time needs to be more than 60 please!");
+                }
+            timeLeft = document.getElementById("gameTime").value;
+            if(numOfMonsters == 0){
+                window.alert("You must pick at least 1 monster for the game");
+            }
+        }
+    }
+
+    if(numbersOnly.test(document.getElementById("gameTime").value) && document.getElementById("gameTime").value !='' && numOfMonsters != 0 && document.getElementById("gameTime").value >= 60){
+        var demoClass = document.getElementsByClassName('monsterTd');
+    for (i = 0; i < demoClass.length; i++) {
+        if(demoClass[i].style.borderStyle == "solid"){
+            var curr = new Object();
+            curr.id = demoClass[i].id;
+            curr.pic = demoClass[i].name;
+            allMonsters.push(curr);
+        }
+    }
+
+        canCreateGame = true;
+    
+    }
+    
+});
+// random balls color
+$("#rndBallsColors").click(function(){
+    for (j=0; j<3; j++){
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)]; 
+        }
+        ballsColors[j] = color;
+    }
+    document.getElementById("5pointBallsColor").value =  ballsColors[0];
+    document.getElementById("15pointBallsColor").value =  ballsColors[1];
+    document.getElementById("25pointBallsColor").value =  ballsColors[2];
+    
+});
+
+//random balls number
+$("#rndBallsNumbers").click(function(){
+    clickOnRndBallsNum = true
+    food_remain = Math.floor(Math.random() * (90 - 50 + 1)) + 50;
+    document.getElementById("amount").innerHTML = food_remain;
+});
+
+//random timeGame
+$("#rndTime").click(function(){
+    timeLeft = Math.floor(Math.random() * (600 - 60 + 1)) + 60;
+    document.getElementById("gameTime").value = timeLeft;
+});
+
+//limited monsters
+function mark(el) {
+    if (el.style.borderStyle == "solid") {
+        if(numOfMonsters == 1){
+            window.alert("you must have at leaste 1 Monster!");
+        }
+        else{
+            el.style.borderStyle = "none";
+            numOfMonsters--;
+        }  
+    } else {
+        if(numOfMonsters == 3){
+            window.alert("you can't choose more than 3 Monsters.\nremove other first, and pick me again!")
+        }
+        else{
+            el.style.borderStyle = "solid";
+            el.style.borderColor = "6a7c79";
+            numOfMonsters++;
+            //pickedMonsters.push(el.attr('src'));
+            //$('.monsterTd img').click(function () { pickedMonsters.push($(el).attr('src'));});
+            
+            
+        }
+
+    }
+
+}
+
+function newGame(){
+lives =3;
+pacmanAlive=true;
+click =1;
+endGame=false;
+score =0;
+lblTime =0;
+    
+}
+
+    function Start() {
+        audio.play();
+        board = new Array();
+        score = 0;
+        pac_color = "yellow";
+        var cnt = 100;
+        if(!clickOnRndBallsNum){
+            food_remain = document.getElementById("ballsNumber").value; // balls number
+        }
+        sum_food_remain=food_remain;
+        ball5Points = Math.floor(sum_food_remain*0.6);
+        ball15Points = Math.floor(sum_food_remain*0.3);
+        ball25Points = Math.floor(sum_food_remain*0.1);
+        // document.getElementById("demo1").innerHTML = "10% is: "+ball25Points;
+        // document.getElementById("demo").innerHTML = "30% is: "+ball15Points;
+        // document.getElementById("demo2").innerHTML = "60% is: "+ball5Points;
+        // document.getElementById("demo3").innerHTML = "sum is: "+sum_food_remain;
+        
+        var pacman_remain = 1;
+        start_time = new Date();
+        var monsterCount = allMonsters.length-1;
+        for (var i = 0; i < 10; i++) {
+            board[i] = new Array();
+            //put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
+            for (var j = 0; j < 10; j++) {
+                if ((i === 3 && j === 3) || (i === 3 && j === 4) || (i === 3 && j === 5) || (i === 6 && j === 1) || (i === 6 && j === 2)) {
+                    board[i][j] = 4;
+                } else {
+                    if(numOfMonsters > 0 && ((i == 0 && j == 0) || (i == 0 && j == 9) || (i == 9 && j == 9))){
+                        board[i][j] = 6;
+                        allMonsters[monsterCount].iFirst = i;
+                        allMonsters[monsterCount].jFirst = j;
+                        allMonsters[monsterCount].i = i;
+                        allMonsters[monsterCount].j = j;
+                        if(monsterCount > 0)
+                            monsterCount--;
+                        numOfMonsters--;
+                    }
+                    else{
+                        var randomNum = Math.random();
+                        if (randomNum <= 1.0 * food_remain / cnt) {
+                            if(ball5Points > 0){
+                                board[i][j] = 5;    // 5 is 5point ball
+                                ball5Points--;
+                                food_remain--;
+                            }else if(ball15Points > 0){
+                                board[i][j] = 15;    // 15 is 5point ball
+                                ball15Points--;
+                                food_remain--;
+
+                            }else{
+                                board[i][j] = 25;    // 25 is 5point ball
+                                ball25Points--;
+                                food_remain--;
+                            }
+                        }else if (randomNum < 1.0 * (pacman_remain + food_remain) / cnt) {
+                            shape.i = i;
+                            shape.j = j;
+                            pacman_remain--;
+                            board[i][j] = 2;    // pacman
+                        } else {
+                            board[i][j] = 0;
+                        }
+                        cnt--;
+                    }
+                }
+            }
+            //document.getElementById("livesUpdate").innerHTML = lives;
+        }
+
+        var emptyCell1 = findRandomEmptyCell(board);
+            //document.getElementById("demo3").innerHTML = JSON.stringify(allMonsters, null, 4);
+            treat = new Object();
+            treat.i = emptyCell1[0];
+            treat.j = emptyCell1[1];
+            board[treat.i][treat.j] = 7;
+
+            var emptyCell2 = findRandomEmptyCell(board);
+            //document.getElementById("demo3").innerHTML = JSON.stringify(allMonsters, null, 4);
+            extraLife = new Object();
+            extraLife.i = emptyCell2[0];
+            extraLife.j = emptyCell2[1];
+            board[extraLife.i][extraLife.j] = 9;
+        //document.getElementById("demo3").innerHTML = JSON.stringify(allMonsters, null, 4);
+    
+        while (food_remain > 0) {
+            var emptyCell = findRandomEmptyCell(board);
+            board[emptyCell[0]][emptyCell[1]] = 25;
+            food_remain--;
+        }
+        keysDown = {};
+        addEventListener("keydown", function (e) {keysDown[e.code] = true;}, false);
+        addEventListener("keyup", function (e) {keysDown[e.code] = false;}, false);
+
+            interval = setInterval(UpdatePosition, 150);
+
+        
+        document.getElementById("namePlayer").innerHTML = "Welcome "+loggedName+"!";
+        //monstersPics();
+    
+        //document.getElementById("demo3").innerHTML = JSON.stringify(allMonsters, null, 4);
+    }
+
+
+    function findRandomEmptyCell(board) {
+        var i = Math.floor((Math.random() * 9) + 1);
+        var j = Math.floor((Math.random() * 9) + 1);
+        while (board[i][j] !== 0) {
+            i = Math.floor((Math.random() * 9) + 1);
+            j = Math.floor((Math.random() * 9) + 1);
+        }
+        return [i, j];
+    }
+
+    /**
+     * @return {number}
+     */
+    function GetKeyPressed() {
+
+        if (keysDown[upKey]) {  // up
+            positionBodyA = -0.3;
+            positionBodyB = 1.4;
+            positionEyeX = -13;
+            positionEyeY = -8;
+            return 1;
+        }
+        if (keysDown[downKey]) {  // down
+            positionBodyA = 0.7;
+            positionBodyB = 2.3;
+            positionEyeX = 18;
+            positionEyeY = 3;
+            return 2;
+        }
+        if (keysDown[leftKey]) {  // left
+            positionBodyA = 1.15;
+            positionBodyB = 2.8;
+            positionEyeX = 0;
+            positionEyeY = -17;
+            return 3;
+        }
+        if (keysDown[rightKey]) {  // right
+            positionBodyA = 0.15;
+            positionBodyB = 1.85;
+            positionEyeX = 5;
+            positionEyeY = -15;
+            return 4;
+        }
+    }
+
+    function Draw() {
+        //console.log("pacmanP :["+shape.j+","+shape.i+"]");
+        //document.getElementById('demo').innerHTML =upKey ;
+        context.clearRect(0, 0, canvas.width, canvas.height); //clean board
+        lblScore.value = score;
+        lblTime.value = time_elapsed;
+        
+        for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
+                var center = new Object();
+                center.x = i * 60 + 30;
+                center.y = j * 60 + 30;
+                if (board[i][j] === 6) {    // ghosts!
+                    var img2 = new Image();
+                    for(var k = 0; k < allMonsters.length; k++) {
+                        if (allMonsters[k].i == i && allMonsters[k].j ==j) {
+                            img2.src = allMonsters[k].pic;
+                        }
+                    }
+                    context.drawImage(img2,center.x - 30,center.y - 30, 60, 60);
+                }
+                else if (board[i][j] === 2) {
+                    //-- BODY OF PACMAN --//
+                    context.beginPath();
+                    context.arc(center.x, center.y, 30, positionBodyA* Math.PI, positionBodyB* Math.PI); // half circle
+                    context.lineTo(center.x, center.y);
+                    context.fillStyle = pac_color; //color
+                    //context.rotate(0.45*Math.PI);
+                    context.fill();
+                    //-- EYE OF PACMAN --//
+                    context.beginPath();
+                    context.arc(center.x + positionEyeX, center.y + positionEyeY, 5, 0, 2 * Math.PI); // circle
+                    context.fillStyle = "black"; //eye color of smile
+                    context.fill();
+                } else if (board[i][j] === 5) {
+                        context.beginPath();
+                        context.arc(center.x, center.y, 7, 0, 2 * Math.PI); // circle
+                        context.fillStyle = ballsColors[0] //balls color
+                        context.fill();
+                } else if (board[i][j] === 15) {
+                    context.beginPath();
+                    context.arc(center.x, center.y, 7, 0, 2 * Math.PI); // circle
+                    context.fillStyle = ballsColors[1] //balls color
+                    context.fill();
+                } else if (board[i][j] === 25) {
+                    context.beginPath();
+                    context.arc(center.x, center.y, 7, 0, 2 * Math.PI); // circle
+                    context.fillStyle =ballsColors[2] //balls color
+                    context.fill();
+                } else if (board[i][j] === 4) {
+                    context.beginPath();
+                    context.rect(center.x - 30, center.y - 30, 60, 60);
+                    context.fillStyle = "grey"; // block color
+                    context.fill();
+                } else if (board[i][j] === 7) {
+                    var img = new Image();
+                    img.src="http://pixelartmaker.com/art/7ea44432fea92b3.png";
+                    context.drawImage(img,center.x - 30,center.y - 30, 60, 60);
+                    
+                }else if (board[i][j] === 9) {
+                    var img3 = new Image();
+                    img3.src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Pacman_HD.png/480px-Pacman_HD.png";
+                    context.drawImage(img3,center.x - 30,center.y - 30, 60, 60);
+                    
+                }
+            }
+        }
+
+
+    }
+
+    function treateRandomWalk(){    // after getting random start-position... ## TO ADD: when go on panman / deny it! 
+        //console.log("treat.i "+ treat.i);
+        //console.log("treat.j " + treat.j);
+        //console.log("position: ["+treat.i+","+treat.j+"]");
+        var closeMoves=[];
+        if(treat.i > 0 && board[treat.i-1][treat.j] !=4){    // can go left
+            closeMoves.push(0);
+            //console.log(k+" can go left");
+            }
+        if(treat.i < 9 && board[treat.i+1][treat.j] !=4){    // can go right
+            closeMoves.push(1); 
+            //console.log(k+" can go left");
+        }
+        if(treat.j > 0 && board[treat.i][treat.j-1] !=4){    // can go up
+            closeMoves.push(2); 
+            //console.log(k+" can go left");
+        }
+        if(treat.j < 9 && board[treat.i][treat.j+1] !=4){    // can go down
+            closeMoves.push(3); 
+            //console.log(k+" can go left");
+        }
+        //console.log("moves: "+ closeMoves);
+        var choosenIndex = closeMoves[Math.floor(Math.random()*closeMoves.length)];
+        //console.log("closeMoves: "+closeMoves);
+        console.log("choosen: "+choosenIndex);
+        if(treat.standOn == ''){
+            board[treat.i][treat.j] = 0;
+        }
+        else{
+            board[treat.i][treat.j] = treat.standOn;
+        } 
+        treat.standOn='';
+        // update values of treat
+            if(choosenIndex == 0 && board[treat.i-1][treat.j] != 4){  // left
+                if((board[treat.i-1][treat.j] ==5) || (board[treat.i-1][treat.j] ==15) || (board[treat.i-1][treat.j] == 25) || (board[treat.i-1][treat.j] == 6) || (board[treat.i-1][treat.j] == 9)){
+                treat.standOn = board[treat.i-1][treat.j];
+                }
+                treat.i--;
+                board[treat.i][treat.j] =7;
+            }
+            else if(choosenIndex == 1 && board[treat.i+1][treat.j] != 4){  // right
+                if((board[treat.i+1][treat.j] ==5) || (board[treat.i+1][treat.j] ==15) || (board[treat.i+1][treat.j] == 25)|| (board[treat.i+1][treat.j] == 6)|| (board[treat.i+1][treat.j] == 9)){
+                treat.standOn = board[treat.i+1][treat.j];
+                }
+                treat.i++;
+                board[treat.i][treat.j] =7;
+                
+            }
+            else if(choosenIndex == 2 && board[treat.i][treat.j-1] != 4){  // up
+                if((board[treat.i][treat.j-1] ==5) || (board[treat.i][treat.j-1] ==15) || (board[treat.i][treat.j-1] == 25)|| (board[treat.i][treat.j-1] == 6)|| (board[treat.i][treat.j-1] == 9)){
+                treat.standOn = board[treat.i][treat.j-1];
+                }
+                treat.j--;
+                board[treat.i][treat.j] =7;
+                
+            }
+            else if(choosenIndex == 3 && board[treat.i][treat.j+1] != 4){  // down
+                if((board[treat.i][treat.j+1] ==5) || (board[treat.i][treat.j+1] ==15) || (board[treat.i][treat.j+1] == 25)|| (board[treat.i][treat.j+1] == 6)|| (board[treat.i][treat.j+1] == 9)){
+                treat.standOn = board[treat.i][treat.j+1];
+                }
+                treat.j++;
+                board[treat.i][treat.j] =7;
+                
+            }
+            else{
+                //console.log("didnt catch!!");
+            }
+            //console.log("treat.standOn: "+treat.standOn);
+            
+            
+
+        
+    }
+
+    function ghostWalk(){
+        if(allMonsters == null){
+            //console.log("the array is null!!");
+            return;
+        }
+        var size = allMonsters.length-1;
+        //document.getElementById("demo1").innerHTML = JSON.stringify(allMonsters, null, 4);
+        //console.log("pacmanP :["+shape.i+","+shape.j+"]");
+        //console.log("in board="+board[shape.i][shape.j]);
+        for(var k=0; k<=size;k++){
+            var moves=[];
+            //console.log("now u with: ["+allMonsters[k].i+","+allMonsters[k].j+"] ---- "+allMonsters[k].id);
+            
+            // i == עמודות , j == שורות
+
+            if(allMonsters[k].i > 0 && board[allMonsters[k].i-1][allMonsters[k].j] !=4){    // can go left
+                //console.log("in left >> pacmanP: ["+shape.i+","+shape.j+"]");
+                moves.push((Math.abs(shape.j-allMonsters[k].j)) + (Math.abs(shape.i-(allMonsters[k].i-1)))); // manhatan from left
+                //console.log(k+" can go left");
+            }
+            else{moves.push(300);}
+            if(allMonsters[k].i < 9 && board[allMonsters[k].i+1][allMonsters[k].j] !=4){    // can go right
+               // console.log("in right >> pacmanP: ["+shape.i+","+shape.j+"]");
+                moves.push((Math.abs(shape.j-allMonsters[k].j)) + (Math.abs(shape.i-(allMonsters[k].i+1))));
+                //console.log(k+" can go right");
+            }else{moves.push(300);}
+            if(allMonsters[k].j > 0 && board[allMonsters[k].i][allMonsters[k].j-1] !=4){    // can go up
+                //console.log("in up >> pacmanP: ["+shape.i+","+shape.j+"]");
+                moves.push((Math.abs(shape.j-(allMonsters[k].j-1))) + (Math.abs((shape.i)-(allMonsters[k].i)))); 
+                //console.log(k+" can go up");
+            }else{moves.push(300);}
+            if(allMonsters[k].j < 9 && board[allMonsters[k].i][allMonsters[k].j+1] !=4){    // can go down
+                //console.log("in down >> pacmanP: ["+shape.i+","+shape.j+"]");
+                moves.push((Math.abs(shape.j-(allMonsters[k].j+1))) + (Math.abs(shape.i-allMonsters[k].i)));
+                //console.log(k+" can go down"); 
+            }else{moves.push(300);}
+            //console.log(moves);
+        
+            var max = Math.min.apply(Math, moves);
+            var indexMax = moves.indexOf(max);
+            //console.log("decid to go: "+indexMax);
+            if(treat.standOn == ''){
+                board[allMonsters[k].i][allMonsters[k].j] = 0;
+            }
+            else{
+                board[allMonsters[k].i][allMonsters[k].j] = allMonsters[k].standOn;
+            }
+
+            if(indexMax == '0'){   // go left
+                    if(board[allMonsters[k].i-1][allMonsters[k].j] != 0 && board[allMonsters[k].i-1][allMonsters[k].j] != 4 & board[allMonsters[k].i-1][allMonsters[k].j] != 2
+                    && board[allMonsters[k].i-1][allMonsters[k].j] != 7 && board[allMonsters[k].i-1][allMonsters[k].j] != 6){
+                        allMonsters[k].standOn = board[allMonsters[k].i-1][allMonsters[k].j];
+                    }else{allMonsters[k].standOn = ''};
+                    board[allMonsters[k].i-1][allMonsters[k].j] = 6;
+                    allMonsters[k].i--;
+            }
+
+            if(indexMax == '1'){   // go right
+                    if(board[allMonsters[k].i+1][allMonsters[k].j] != 0 && board[allMonsters[k].i+1][allMonsters[k].j] != 4 & board[allMonsters[k].i+1][allMonsters[k].j] != 2
+                    && board[allMonsters[k].i+1][allMonsters[k].j] != 7 && board[allMonsters[k].i+1][allMonsters[k].j] != 6){
+                        allMonsters[k].standOn = board[allMonsters[k].i+1][allMonsters[k].j];
+                    }else{allMonsters[k].standOn = ''};
+                    board[allMonsters[k].i+1][allMonsters[k].j] = 6;
+                    allMonsters[k].i++;
+            }
+
+            if(indexMax == '2'){   // go up
+                    if(board[allMonsters[k].i][allMonsters[k].j-1] != 0 && board[allMonsters[k].i][allMonsters[k].j-1] != 4 & board[allMonsters[k].i][allMonsters[k].j-1] != 2
+                    && board[allMonsters[k].i][allMonsters[k].j-1] != 7 && board[allMonsters[k].i][allMonsters[k].j-1] != 6){
+                        allMonsters[k].standOn = board[allMonsters[k].i][allMonsters[k].j-1];
+                    }else{allMonsters[k].standOn = ''};
+                    board[allMonsters[k].i][allMonsters[k].j-1] = 6;
+                    allMonsters[k].j--;
+            }
+            if(indexMax == '3'){   // go down
+                    if(board[allMonsters[k].i][allMonsters[k].j+1] != 0 && board[allMonsters[k].i][allMonsters[k].j+1] != 4 & board[allMonsters[k].i][allMonsters[k].j+1] != 2
+                    && board[allMonsters[k].i][allMonsters[k].j+1] != 7 && board[allMonsters[k].i][allMonsters[k].j+1] != 6){
+                        allMonsters[k].standOn = board[allMonsters[k].i][allMonsters[k].j+1];
+                    }else{allMonsters[k].standOn = ''};
+                    board[allMonsters[k].i][allMonsters[k].j+1] = 6;
+                    allMonsters[k].j++;
+            }
+            if(max == 0){
+            if(lives > 0){
+                lives--;    // countdownLives
+                //document.getElementById("livesUpdate").innerHTML = lives;
+                score= score -10;
+                var emptyCell = findRandomEmptyCell(board); // random new place for pacman
+                board[shape.i][shape.j] = 0;
+                shape.i = emptyCell[0];
+                shape.j = emptyCell[1];
+                for(var n=0; n<=(allMonsters.length-1);n++){
+                    if(allMonsters[k].standOn != ''){
+                        board[allMonsters[n].i][allMonsters[n].j] = allMonsters[n].standOn;
+                    }
+                    else{
+                        board[allMonsters[n].i][allMonsters[n].j] = 0; 
+                    }
+                    //console.log(allMonsters[k])
+                    allMonsters[n].i = allMonsters[n].iFirst;
+                    allMonsters[n].j = allMonsters[n].jFirst;
+                    board[allMonsters[n].i][allMonsters[n].j] = 6;
+                }
+            }
+            else{
+                lives--;
+            }
+        //console.log("now u with: ["+allMonsters[k].i+","+allMonsters[k].j+"] ---- "+allMonsters[k].id);
+        
+        }
+        }
+        //document.getElementById("demo2").innerHTML = JSON.stringify(allMonsters, null, 4);
+        
+        
+        Draw();
+    }
+    function UpdatePosition() {
+        console.log(timeLeft);
+        //console.log("treat position: ["+treat.i+","+treat.j+"]");
+        
+        //console.log("my time: ");
+        var time =  time_elapsed;
+    if(lives > -1 ){
+        if(timeLeft <= time){
+            if(endGame == false){
+            if(score < 150){
+                window.alert("You can do better!");
+            }
+            else{
+                window.alert("We have a winner!!!");
+            }
+            endGame = true;
+            audio.pause();
+            }
+        }else{
+
+            if(once % 4 == 0){
+                ghostWalk();
+            }
+
+            if(once % 4 == 0 && treatAlive){
+                    treateRandomWalk()
+            }
+            once++;
+
+            board[shape.i][shape.j] = 0;
+            var x = GetKeyPressed();
+            // update pacman cordinaites
+            if (x === 1) {
+                if (shape.j > 0 && board[shape.i][shape.j - 1] !== 4) { //up
+                    if(board[shape.i][shape.j - 1] == 7){
+                        treatAlive = false;
+                    }
+                    if(board[shape.i][shape.j - 1] == 9){
+                        $('#lives4').show();
+                        lives++;
+                    }
+
+                    
+                    shape.j--;
+                }
+            }
+            if (x === 2) {
+                if (shape.j < 9 && board[shape.i][shape.j + 1] !== 4) { // down
+                    if(board[shape.i][shape.j + 1] == 7){
+                        treatAlive = false;
+                    }
+                    if(board[shape.i][shape.j+ 1] == 9){
+                        $('#lives4').show();
+                        lives++;
+                    }
+                    shape.j++;
+                }
+            }
+            if (x === 3) {  
+                if (shape.i > 0 && board[shape.i - 1][shape.j] !== 4) { //left
+                    if(board[shape.i - 1][shape.j] == 7){
+                        treatAlive = false;
+                    }
+                    if(board[shape.i-1][shape.j] == 9){
+                        $('#lives4').show();
+                        lives++;
+                    }
+                    shape.i--;
+                }
+            }
+            if (x === 4) {
+                if (shape.i < 9 && board[shape.i + 1][shape.j] !== 4) { // right
+                    if(board[shape.i + 1][shape.j] == 7){
+                        treatAlive = false;
+                    }
+                    if(board[shape.i+1][shape.j] == 9){
+                        $('#lives4').show();
+                        lives++;
+                    }
+                    shape.i++;
+
+                }
+            }
+            // add scores to things! 
+            if (board[shape.i][shape.j] === 5) {
+                //document.getElementById("demo").innerHTML = "HIT!! ";
+                score += 5;
+            }
+            if (board[shape.i][shape.j] === 15) {
+                //document.getElementById("demo").innerHTML = "HIT!! ";
+                score += 15;
+            }
+            if (board[shape.i][shape.j] === 25) {
+                //document.getElementById("demo").innerHTML = "HIT!! ";
+                score += 25;
+            }
+            if (board[shape.i][shape.j] === 7) {
+                score += 50;
+            }
+            board[shape.i][shape.j] = 2;
+            var currentTime = new Date();
+            time_elapsed = (currentTime - start_time) / 1000;
+
+            //endGame();
+            // if (score >= 20 && time_elapsed <= 10) {
+            //     pac_color = "green";
+            // }
+            // if (score === 50) {
+            //     window.clearInterval(interval);
+            //     window.alert("Game completed");
+            // } else {
+                
+                Draw();
+                //monstersPics();
+            // }
+    }
+
+    }
+    else{
+        if(endGame == false){
+                window.alert("You Lost!");
+            endGame = true;
+            audio.pause();
+        }
+        
+    }
+    }
+    
+
+
+   
+
+    function getPositionReturnMonsterPic(i,j){
+        for(var i = 0; i < allMonsters.length; i++) {
+                if (allMonsters[i].i == i && allMonsters[i].j ==j) {
+                    return (allMonsters[i].pic);
+                    break;
+                    }
+                else{
+                    return "https://static.giantbomb.com/uploads/scale_small/8/87790/2469740-blinky.png";
+                }
+                }
+
+    }
+
+
+function livesUpdatePic(numOfLives){
+    var img = document.createElement("img");
+    img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Pacman_HD.png/480px-Pacman_HD.png";
+    document.body.appendChild(img);
+    
+}
+function stopMusic(){
+    if(click %2 ==1){
+        audio.pause();
+    }
+    else{
+        audio.play();
+    }
+    click++;
+}
+
+function updateLives(){
+    if (lives == 3) {
+        $('#lives1').show();
+        $('#lives2').show();
+        $('#lives3').show();
+        $('#lives4').hide();
+    }
+    if(lives == 2){
+        $('#lives1').show();
+        $('#lives2').show();
+        $('#lives3').hide();
+        $('#lives4').hide();
+    }
+    if(lives == 1){
+        $('#lives1').show();
+        $('#lives2').hide();
+        $('#lives3').hide();
+        $('#lives4').hide();
+    }
+    if(lives == 0){
+        $('#lives1').hide();
+        $('#lives2').hide();
+        $('#lives3').hide();
+        $('#lives4').hide();
+    }
+    setTimeout("updateLives();", 1000);   
+}
+
+</script>
+
+</html>
